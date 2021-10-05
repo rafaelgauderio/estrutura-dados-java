@@ -13,13 +13,13 @@ public class Program03 {
 			vector.adiciona("Rafael");
 			vector.adiciona("Julia");
 			vector.adiciona("Claudia");
+			vector.adiciona("Estrutudas de Dados");
 			
 		} catch (Exception error) {
 			
 			error.printStackTrace();
 			
-		}
-		
+		}		
 	
 
 	}

@@ -1,5 +1,7 @@
 package com.rafaeldeluca.vetor;
 
+import java.util.Arrays;
+
 public class Vetor {
 	
 	private String [] elements;
@@ -28,18 +30,53 @@ public class Vetor {
 	*/
 	
 	//Para não precisar percorrer todo o vetor atrás da primeiro posição nula eu atribuo um tamanho para o vetor
-	public void adiciona(String element) throws Exception {
+	public boolean adiciona(String element)  {
 		
 		//verificar se o tamanho é menor que a capacity de elementos do vetor
 		if (this.size < this.elements.length) {
 			
 			this.elements[this.size] = element;
-			this.size++;	
+			this.size++;
+			return true;
 		}
 		else {
-			throw new Exception ("Vetor cheio, não é possível adicionar mais elementos!Aumente a capacidade do vetor.");
+			return false;
 		}		
 		
 	}
+
+	public int getSize() {
+		return this.size;
+	}
+
+	//Usuário nao deve setar o tamano do vetor
+	public void setSize(int size) {
+		this.size = size;
+	}
+
+	//Fazer um toString que imprima apenas os elementos do vetor preenchidos, nao imprimir as posições null
+	@Override
+	public String toString() {
+		
+		StringBuilder string = new StringBuilder();
+		string.append("[");
+		
+		for (int i=0; i<this.size-1; i++) {
+			string.append(this.elements[i]);
+			string.append(", ");
+		}
+		
+		if (this.size>0) {
+			string.append(this.elements[this.size=1]);
+		}
+		
+		string.append("]");
+		
+		return string.toString();
+	}
+	
+	
+	
+	
 
 }
