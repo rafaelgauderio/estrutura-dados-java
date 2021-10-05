@@ -50,8 +50,32 @@ public class Vetor {
 	}
 
 	//Usuário nao deve setar o tamano do vetor
+	/*
 	public void setSize(int size) {
 		this.size = size;
+	}	*/
+	
+	public String[] getElements() {
+		return elements;
+	}
+
+	public void setElements(String[] elements) {
+		this.elements = elements;
+	}
+	
+	
+	public String search(int position) {	
+		//range de posições inváliadas
+		//(position < 0 || position >= size)
+		
+		if (!(position >=0 && position < size )) {
+			throw new IllegalArgumentException("Informaste uma posição inválida. Posição informada menor que zero ou maior que o tamanho do vetor!");
+		}
+		else {
+			return this.elements[position];
+		}
+		
+		
 	}
 
 	//Fazer um toString que imprima apenas os elementos do vetor preenchidos, nao imprimir as posições null
