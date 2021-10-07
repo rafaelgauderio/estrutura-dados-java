@@ -6,7 +6,7 @@ public class Program03 {
 
 	public static void main(String [] args) {
 
-		Vetor vector = new Vetor(2);
+		Vetor vector = new Vetor(4);
 		
 		try {
 			
@@ -14,6 +14,8 @@ public class Program03 {
 			vector.adiciona("Julia");
 			vector.adiciona("Claudia");
 			vector.adiciona("Estrutudas de Dados");
+			
+			System.out.println(vector.toString());
 			
 		} catch (Exception error) {
 			

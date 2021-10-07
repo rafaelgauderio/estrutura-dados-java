@@ -16,35 +16,7 @@ public class Vetor {
 		this.size=0;// inicializa o vetor com tamanho zero
 
 	}	
-
-	/*
-	public void adiciona(String element ) {
-		for (int i=0; i< this.elements.length; i ++) {
-			if(this.elements[i]==null) {
-				this.elements[i] = element;
-				//Parar de executar o código quando encontrar a primeira posição nula e não percorrer todo o vetor
-				break;
-			}
-		}
-	}
-	 */
-
-	//Para não precisar percorrer todo o vetor atrás da primeiro posição nula eu atribuo um tamanho para o vetor
-	public boolean adiciona(String element)  {
-
-		//verificar se o tamanho é menor que a capacity de elementos do vetor
-		if (this.size < this.elements.length) {
-
-			this.elements[this.size] = element;
-			this.size++;
-			return true;
-		}
-		else {
-			return false;
-		}		
-
-	}
-
+	
 	public int getSize() {
 		return this.size;
 	}
@@ -62,6 +34,47 @@ public class Vetor {
 	public void setElements(String[] elements) {
 		this.elements = elements;
 	}
+
+	/*
+	public void adiciona(String element ) {
+		for (int i=0; i< this.elements.length; i ++) {
+			if(this.elements[i]==null) {
+				this.elements[i] = element;
+				//Parar de executar o código quando encontrar a primeira posição nula e não percorrer todo o vetor
+				break;
+			}
+		}
+	}
+	 */
+
+	//Para não precisar percorrer todo o vetor atrás da primeiro posição nula eu atribuo um tamanho para o vetor
+	public boolean adiciona(String element)  {
+
+		if (this.size < this.elements.length) {
+			this.elements[this.size] = element;
+			this.size++;
+			return true;
+		}
+		return false;	
+	}
+
+	
+	public boolean adiciona(int position, String element) {
+		
+		if(!(position >=0 && position <= size) ) {
+			throw new IllegalArgumentException("Posição informada é inválida");
+		}
+		// move all elements all position foward
+		for (int i=this.size-1; i>=position; i--) {
+			this.elements[i+1]=this.elements[i];
+		}
+		this.elements[position]=element;
+		this.size++;			
+		return false;	
+	}
+	
+
+	
 
 
 	public String search(int position) {	
@@ -91,9 +104,6 @@ public class Vetor {
 	}
 
 
-
-
-
 	//Fazer um toString que imprima apenas os elementos do vetor preenchidos, nao imprimir as posições null
 	@Override
 	public String toString() {
@@ -107,7 +117,7 @@ public class Vetor {
 		}
 
 		if (this.size>0) {
-			string.append(this.elements[this.size=1]);
+			string.append(this.elements[this.size-1]);
 		}
 
 		string.append("]");

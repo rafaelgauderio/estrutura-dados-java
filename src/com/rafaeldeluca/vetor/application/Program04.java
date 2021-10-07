@@ -8,6 +8,8 @@ public class Program04 {
 
 		Vetor vector = new Vetor(10);
 
+		System.out.println(vector);
+		
 		vector.adiciona("Rafael");
 		vector.adiciona("Julia");
 		vector.adiciona("Claudia");
@@ -15,7 +17,7 @@ public class Program04 {
 		
 		
 		
-		System.out.println("Tamnho do vetor " + vector.getSize());
+		System.out.println("Tamanho do vetor " + vector.getSize());
 		
 		
 		System.out.println(vector);

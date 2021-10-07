@@ -15,11 +15,14 @@ public class Program05 {
 		vector.adiciona("Algoritmos");
 		
 		
+		
+		
 		System.out.println("posicao 3: " +vector.search(2));
 		System.out.println("posicao 5: " +vector.search(4));
 		//System.out.println("posicao 5: " +vector.search(80));
 		//System.out.println("posicao 5: " +vector.search(-4));
 		
+		System.out.println(vector.toString());
 		
 
 	}	
