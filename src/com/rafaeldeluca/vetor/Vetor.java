@@ -49,7 +49,7 @@ public class Vetor {
 
 	//Para não precisar percorrer todo o vetor atrás da primeiro posição nula eu atribuo um tamanho para o vetor
 	public boolean adiciona(String element)  {
-
+		this.increaseCapacity();
 		if (this.size < this.elements.length) {
 			this.elements[this.size] = element;
 			this.size++;
@@ -59,12 +59,19 @@ public class Vetor {
 	}
 
 	
+	// 0 1 2 3 4 5 6 = tamanho é 5
+	// A B C D F G + = posicao 5 vai receber o F e dae atribiu o E na posicao 4 
+	
+	//Overloading =sobrecarregar o método adiciona modificando a sua assinatura
 	public boolean adiciona(int position, String element) {
 		
 		if(!(position >=0 && position <= size) ) {
 			throw new IllegalArgumentException("Posição informada é inválida");
 		}
-		// move all elements all position foward
+		
+		this.increaseCapacity();
+		
+		// move all elements one position foward
 		for (int i=this.size-1; i>=position; i--) {
 			this.elements[i+1]=this.elements[i];
 		}
@@ -73,8 +80,16 @@ public class Vetor {
 		return false;	
 	}
 	
-
-	
+	//adicionar mais capacidade ao vetor se ele estiver cheio(duplicar a capacidade)
+	private void increaseCapacity() {
+		if (this.size == this.elements.length) {
+			String [] newElements = new String [this.elements.length*2];
+			for (int i=0 ; i<this.elements.length; i++) {
+				newElements[i]= this.elements[i];
+			}
+			this.elements= newElements;
+		}
+	}	
 
 
 	public String search(int position) {	
