@@ -2,7 +2,7 @@ package com.rafaeldeluca.vetor.application;
 
 import com.rafaeldeluca.vetor.Vetor;
 
-public class Program9 {
+public class Program09 {
 
 	public static void main(String[] args) {
 		
@@ -22,6 +22,10 @@ public class Program9 {
 		vector.remove(1);
 		
 		System.out.println("\nVetor após remoção do elemento\n"+ vector.toString());
+		
+		System.out.println("Removendo o elemento 'A'");			
+		
+		
 
 	}
 
