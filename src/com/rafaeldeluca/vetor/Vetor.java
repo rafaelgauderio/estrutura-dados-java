@@ -89,9 +89,25 @@ public class Vetor {
 			}
 			this.elements= newElements;
 		}
-	}	
-
-
+	}
+	// A X B C D -> remover o X -> posicao 1 a ser removida
+	// A B C D D -> size é 5
+	//vetor[1] = vetor [2]
+	//vetor[2] = vetor [3]
+	//vetor[3] = vetor [4]
+	
+	public void remove(int position) {
+		if(position < 0 || position > this.size) {
+			throw new IllegalArgumentException("Posição informada é inválida");
+			}
+		
+		for (int i=position; i<this.size; i++) {
+			this.elements[i]=this.elements[i+1];
+		}
+		this.size--;
+	}
+	
+	
 	public String search(int position) {	
 		//range de posições inváliadas
 		//(position < 0 || position >= size)
