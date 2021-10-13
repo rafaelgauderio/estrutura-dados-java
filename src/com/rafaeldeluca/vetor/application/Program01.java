@@ -9,8 +9,10 @@ public class Program01 {
 		Vetor vetor = new Vetor(10);
 		 		
 		
-		int i=0;
-		i++;
+		System.out.println("Um vetor é a estrutura de dados mais simples que existe.\n"
+				+ "Um vetor armazena um sequência de valores onde todos são do mesmo tipo.");
+		
+		System.out.println(vetor);
 		
 	}
 
