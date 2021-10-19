@@ -131,7 +131,6 @@ public class Vetor {
 			}
 		}
 		return "o Elemento NÃO existe";
-
 	}
 
 
