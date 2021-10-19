@@ -114,9 +114,14 @@ public class Lista<T> {
 
 	}
 	
+	public boolean contem(T element) {
+		int position = busca(element);
+		if (position >= 0) {
+			return true;			
+		}		
+		return false;
 	
-
-
+	}
 
 	@Override
 	public String toString() {
