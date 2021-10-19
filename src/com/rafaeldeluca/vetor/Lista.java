@@ -122,6 +122,18 @@ public class Lista<T> {
 		return false;
 	
 	}
+	
+	//iterar de trás pra frente porque quer a ultima vez que o elemento aparece na lista
+	public int ultimoIndiceDe(T element) {
+		
+		for(int i=this.size-1; i>=0; i--) {
+			if(this.elements[i].equals(element)){
+				return i;
+			}
+		}
+		return -1;
+	}
+	
 
 	@Override
 	public String toString() {
