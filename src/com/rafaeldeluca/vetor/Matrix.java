@@ -26,7 +26,7 @@ public class Matrix {
 			for(j=0; j<matriz[i].length; j++) {				
 				matriz[i][j]=k;
 				k++;
-				System.out.print("["+matriz[i][j]+"]");				
+				System.out.print("["+String.format("%02d", matriz[i][j])+"]");				
 			}
 			System.out.println();			
 		}		

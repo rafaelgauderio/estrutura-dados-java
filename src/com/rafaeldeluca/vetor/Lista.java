@@ -100,6 +100,22 @@ public class Lista<T> {
 		}
 	}
 	
+	public void limpar() {
+		
+		//opcao 1
+		for(int i=0; i<this.size; i++) {
+			this.elements[i]=null;
+		}
+		this.size=0;
+		
+		//opcao 2
+		//this.elements = (T[]) new Object[this.elements.length];
+		
+		
+		//opcao 3
+		//this.size=0;
+	}
+	
 	
 	public T obtem(int position) {
 		
@@ -152,17 +168,22 @@ public class Lista<T> {
 
 	@Override
 	public String toString() {
-
+		
+		int i=0;
 		StringBuilder string = new StringBuilder();
 		string.append("\n");
 
-		for (int i=0; i<this.size-1; i++) {
+		for (i=0; i<this.size-1; i++) {
 			string.append(this.elements[i]);
 			string.append("\n");
 		}
 
 		if (this.size>0) {
 			string.append(this.elements[this.size-1]);
+		}
+		
+		if(this.elements[i]==null) {
+		return "[vazio]";
 		}
 
 		
