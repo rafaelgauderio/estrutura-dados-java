@@ -86,10 +86,18 @@ public class Lista<T> {
 			throw new IllegalArgumentException("Posição informada é inválida");
 			}
 		
-		for (int i=position; i<this.size; i++) {
+		for (int i=position; i<this.size-1; i++) {
 			this.elements[i]=this.elements[i+1];
 		}
 		this.size--;
+	}
+	
+	// primeiro ve se o elemento existe no vetor e depois remove
+	public void remove(T element) {
+		int pos = this.busca(element);
+		if (pos>-1) {
+			this.remove(pos);
+		}
 	}
 	
 	
