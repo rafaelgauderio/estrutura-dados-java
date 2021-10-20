@@ -93,6 +93,13 @@ public class Lista<T> {
 	}
 	
 	
+	public T obtem(int position) {
+		
+		return this.search(position);
+		
+	}
+	
+	
 	public T search(int position) {			
 
 		if (!(position >=0 && position < size )) {
