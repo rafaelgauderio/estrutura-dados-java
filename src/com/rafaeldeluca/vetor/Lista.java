@@ -23,6 +23,8 @@ public class Lista<T> {
 	}
 	
 	
+	
+	
 	@SuppressWarnings("unchecked")
 	public Lista (int capacity, Class<T> classType) {
 		this.elements= (T[]) Array.newInstance(classType, capacity);
