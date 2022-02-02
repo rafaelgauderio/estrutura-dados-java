@@ -27,7 +27,7 @@ public class Lista2<T> extends EstruturaEstatica<T> {
 	public T search(int position) {			
 
 		if (!(position >=0 && position < size )) {
-			throw new IllegalArgumentException("Informaste uma posição inválida. Posição informada menor que zero ou maior que o tamanho do vetor!");
+			throw new IllegalArgumentException("Informaste uma posição inválida. Posição informada menor que zero ou maior que o tamanho do estrutura!");
 		}
 		else {
 			return this.elements[position];
