@@ -1,4 +1,4 @@
-package vetor.labs;
+package com.rafaeldeluca.vetor.labs;
 
 import com.rafaeldeluca.vetor.Lista;
 

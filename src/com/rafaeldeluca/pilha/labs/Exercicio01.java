@@ -1,4 +1,4 @@
-package pilha.labs;
+package com.rafaeldeluca.pilha.labs;
 
 import com.rafaeldeluca.pilha.Pilha;
 
@@ -10,7 +10,7 @@ public class Exercicio01 {
 		//ler 10 número de um vetor. Se for para empilhar, se for impar, desempilhar. 
 		// mensagem se a pilha estiver vazia. Desempilhar todos os elementos se a pilha não estiver fazia
 
-		int [] vetorInteiro = {1,2,3,4,6,12,14,13,17,20};
+		int [] vetorInteiro = {1,2,3,4,6,12,14,13,16,20};
 
 		Pilha<Integer> pilha = new Pilha<Integer>(1);
 

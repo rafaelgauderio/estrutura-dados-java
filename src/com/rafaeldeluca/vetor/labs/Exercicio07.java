@@ -1,12 +1,16 @@
-package vetor.labs;
+package com.rafaeldeluca.vetor.labs;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
-import com.rafaeldeluca.vetor.Lista;
+
 import com.rafaeldeluca.vetor.application.Contact;
 
 
-public class Exercicio06 {
+//CRTL + F = find replace
+//trocar ArrayList por ArrayList
+
+public class Exercicio07 extends Exercicio06 {
 
 	public static void main(String[] args) {
 
@@ -16,9 +20,9 @@ public class Exercicio06 {
 
 		Scanner sc = new Scanner(System.in);
 
-		Lista<Contact> lista = new Lista<Contact>(25);
+		ArrayList<Contact> ArrayList = new ArrayList<Contact>(25);
 
-		criarContatosDinamicamente(5,lista);		
+		criarContatosDinamicamente(5,ArrayList);		
 
 		int option=1;		
 
@@ -29,38 +33,38 @@ public class Exercicio06 {
 			switch (option) {
 
 			case 1:
-				adicionarContatoFinal(sc, lista);
+				adicionarContatoFinal(sc, ArrayList);
 				break;
 				
 			case 2:
-				adicionarContatoPosition(sc, lista);
+				adicionarContatoPosition(sc, ArrayList);
 				break;
 				
 			case 3:
-				obtemContatoDePosicaoEspeficica(sc, lista);
+				obtemContatoDePosicaoEspeficica(sc, ArrayList);
 				break;
 			case 4:
-				obtemContato(sc, lista);
+				obtemContato(sc, ArrayList);
 				break;	
 			case 5:
-				pesquisarUltimoIndide(sc, lista);
+				pesquisarUltimoIndide(sc, ArrayList);
 				break;
 			case 6:
-				pesquisarContatoExiste(sc, lista);
+				pesquisarContatoExiste(sc, ArrayList);
 				break;
 			case 7:
-				excluirContatoPorPosicao(sc, lista);
+				excluirContatoPorPosicao(sc, ArrayList);
 				break;
 			case 8:
-				excluirContato(sc, lista);
+				excluirContato(sc, ArrayList);
 				break;
 			case 9:
-				imprimeTamanhoVetor(lista);
+				imprimeTamanhoVetor(ArrayList);
 				break;
 			case 10:
-				limparVetor(lista);
+				limparVetor(ArrayList);
 			case 11:
-				imprimirVetor(lista);
+				imprimirVetor(ArrayList);
 
 			}
 
@@ -73,116 +77,37 @@ public class Exercicio06 {
 
 	}
 
-	public static int obterOpcaoMenu(Scanner sc) {
-
-		boolean validInput = false;
-		int option=0;
-		String input;
-
-
-
-		while (!validInput) {
-
-			System.out.println("\nEnter the desired option:");
-			System.out.println("1: Add contact at the end of the vector");
-			System.out.println("2: Add contact in a specific position");
-			System.out.println("3: Get contact form a specific position");
-			System.out.println("4: Concact inquiry");
-			System.out.println("5: Query last index of the contact");
-			System.out.println("6: Check if concact exists");
-			System.out.println("7: Delete contact by position");
-			System.out.println("8: Delete contact");
-			System.out.println("9: Check vector size");
-			System.out.println("10: Delete all contact from vector");
-			System.out.println("11: Print vector");
-			System.out.println("0: Exict vector");	
-
-			//tratar exceção caso o usuario não digitar um numero inteiro
-
-			try {
-
-				input = sc.nextLine();
-				option = Integer.parseInt(input);
-
-				if(option>=0 && option<=11 ) {
-					validInput=true;
-				}
-
-				else {
-					throw new Exception();
-				}
-
-
-			} catch (Exception error) {
-				System.out.println("INVALID OPTION. Enter a number between 1 and 11. Zero to exit program!\n");
-			}
-
-		}
-
-		return option;		
-	}
-
-
-
-
-	public static String lerInformacao(String msg, Scanner sc) {
-
-		System.out.println(msg);
-		String input = sc.nextLine();		
-
-		return input;
-	}
 	
-	public static void imprimeTamanhoVetor(Lista<Contact> lista) {
+	
+	public static void imprimeTamanhoVetor(ArrayList<Contact> ArrayList) {
 		
-		System.out.println("Size of vector of contacts is " + lista.getSize());
+		System.out.println("Size of vector of contacts is " + ArrayList.size());
 		
 	}
 
 
 
-	public static void imprimirVetor(Lista<Contact> lista) {
-		System.out.println(lista);
+	public static void imprimirVetor(ArrayList<Contact> ArrayList) {
+		System.out.println(ArrayList);
 	}
 
 
-	public static void limparVetor(Lista<Contact> lista) {
+	public static void limparVetor(ArrayList<Contact> ArrayList) {
 
-		lista.limpar();
+		ArrayList.clear();
 		System.out.println("Delete all data from vector");
 
 	}
+	
 
-	public static int lerInformacaoInt(String msg, Scanner sc) {
-
-		boolean validInput = false;
-		int num = 0;
-
-		while(!validInput) {
-			try {
-				System.out.println(msg);
-				String input = sc.nextLine();
-
-				num = Integer.parseInt(input);
-
-				validInput = true;
-			} catch (Exception error) {
-				System.out.println("Invalid input, enter again:");
-			}
-		}
-
-		return num;
-
-	}	
-
-	public static void excluirContatoPorPosicao(Scanner sc, Lista<Contact> lista) {
+	public static void excluirContatoPorPosicao(Scanner sc, ArrayList<Contact> ArrayList) {
 
 		int pos = lerInformacaoInt("Enter the position to be delete", sc);
 
 		try {
 
-			Contact contact = lista.search(pos);
-			lista.remove(pos);
+			Contact contact = ArrayList.get(pos);
+			ArrayList.remove(pos);
 
 			System.out.println("Contact DELETE");
 
@@ -197,14 +122,14 @@ public class Exercicio06 {
 
 
 
-	public static void excluirContato(Scanner sc, Lista<Contact> lista) {
+	public static void excluirContato(Scanner sc, ArrayList<Contact> ArrayList) {
 
 		int pos = lerInformacaoInt("Enter the position to be delete", sc);
 
 		try {
 
-			Contact contact = lista.search(pos);
-			lista.remove(contact);
+			Contact contact = ArrayList.get(pos);
+			ArrayList.remove(contact);
 
 			System.out.println("Contact DELETE");
 
@@ -217,7 +142,7 @@ public class Exercicio06 {
 	}
 
 
-	public static void pesquisarContatoExiste(Scanner sc, Lista<Contact> lista) {
+	public static void pesquisarContatoExiste(Scanner sc, ArrayList<Contact> ArrayList) {
 
 
 		int position = lerInformacaoInt("Enter the postion to be search", sc);
@@ -225,9 +150,9 @@ public class Exercicio06 {
 
 		try {
 
-			Contact contact = lista.search(position);
+			Contact contact = ArrayList.get(position);
 
-			boolean exist = lista.contem(contact);
+			boolean exist = ArrayList.contains(contact);
 
 			if(exist==true) {
 				System.out.println("Contact existe, printing contact information");
@@ -246,20 +171,20 @@ public class Exercicio06 {
 
 	}
 
-	public static void pesquisarUltimoIndide(Scanner sc, Lista<Contact> lista) {
+	public static void pesquisarUltimoIndide(Scanner sc, ArrayList<Contact> ArrayList) {
 
 		int position = lerInformacaoInt("Enter the postion to be search", sc);
 
 
 		try {
 
-			Contact contact = lista.search(position);
+			Contact contact = ArrayList.get(position);
 
 			System.out.println("Contact existe, printing contact information");
 			System.out.println(contact);
 
 			System.out.println("Searching last index of contact found");
-			position = lista.ultimoIndiceDe(contact);
+			position = ArrayList.lastIndexOf(contact);
 
 			System.out.println("Contact found in the position:" + position);
 
@@ -274,20 +199,20 @@ public class Exercicio06 {
 	}
 
 
-	public static void obtemContato(Scanner sc, Lista<Contact> lista) {
+	public static void obtemContato(Scanner sc, ArrayList<Contact> ArrayList) {
 
 		int position = lerInformacaoInt("Enter the postion to be search", sc);
 
 
 		try {
 
-			Contact contact = lista.search(position);
+			Contact contact = ArrayList.get(position);
 
-			System.out.println("Contact existe, printing contact information");
+			System.out.println("Contact exist, printing contact information");
 			System.out.println(contact);
 
 			System.out.println("Searching contact found");
-			position = lista.busca(contact);
+			position = ArrayList.indexOf(contact);
 
 			System.out.println("Contact found in the position:" + position);
 
@@ -297,14 +222,14 @@ public class Exercicio06 {
 
 	}
 
-	public static void obtemContatoDePosicaoEspeficica(Scanner sc, Lista<Contact> lista) {
+	public static void obtemContatoDePosicaoEspeficica(Scanner sc, ArrayList<Contact> ArrayList) {
 
 		int position = lerInformacaoInt("Enter the postion to be search", sc);
 
 
 		try {
 
-			Contact contact = lista.search(position);
+			Contact contact = ArrayList.get(position);
 
 			System.out.println("Contact existe, printing contact information");
 			System.out.println(contact);			
@@ -316,7 +241,7 @@ public class Exercicio06 {
 	}
 
 
-	public static void adicionarContatoPosition(Scanner sc, Lista<Contact> lista) {
+	public static void adicionarContatoPosition(Scanner sc, ArrayList<Contact> ArrayList) {
 
 		System.out.println("Creating a contact, enter the information");
 		String name = lerInformacao("Enter the name", sc);
@@ -330,7 +255,7 @@ public class Exercicio06 {
 
 		try {
 
-			lista.adiciona(contact);
+			ArrayList.add(contact);
 			System.out.println("Contact created successfully");
 			System.out.println(contact);
 
@@ -345,7 +270,7 @@ public class Exercicio06 {
 
 
 
-	public static void adicionarContatoFinal(Scanner sc, Lista<Contact> lista) {
+	public static void adicionarContatoFinal(Scanner sc, ArrayList<Contact> ArrayList) {
 
 		System.out.println("Creating a contact, enter the information");
 		String name = lerInformacao("Enter the name", sc);
@@ -355,7 +280,7 @@ public class Exercicio06 {
 
 		Contact contact = new Contact(name, phone, email, address);
 
-		lista.adiciona(contact);
+		ArrayList.add(contact);
 
 		System.out.println("Contact created successfully");
 		System.out.println(contact);
@@ -364,7 +289,7 @@ public class Exercicio06 {
 	}
 
 
-	public static void criarContatosDinamicamente(int quantity, Lista<Contact> lista) {
+	protected static void criarContatosDinamicamente(int quantity, ArrayList<Contact> ArrayList) {
 
 		//boa pratica não criar varias variáveis dentro de loops
 		Contact contact;
@@ -376,7 +301,7 @@ public class Exercicio06 {
 			contact.setEmail("contact" + i+"@gmail.com");
 			contact.setAddress("Street " + i +", number: " +i);
 
-			lista.adiciona(contact);
+			ArrayList.add(contact);
 		}
 
 
