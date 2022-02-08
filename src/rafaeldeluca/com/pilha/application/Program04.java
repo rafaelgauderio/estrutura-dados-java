@@ -10,7 +10,7 @@ public class Program04 {
 	
 		Pilha<Integer> pilha = new Pilha<Integer>(15);
 		
-		//não tem nada para espiar no topo
+		//não tem nada para espiar no topo (null)
 		System.out.println(pilha.topo());
 		
 		pilha.empilha(12);
