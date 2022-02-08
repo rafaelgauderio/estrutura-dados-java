@@ -17,6 +17,8 @@ public class Program05 {
 		pilha.empilha("AC-DC");
 		
 		System.out.println(pilha);
+		System.out.println("pilha é LIFO (Last In, First Out).\nÚltimo elemento a entrar no topo é o primeiro a sair na pilha.");		
+		
 		System.out.println("\nDesempilhando elemento do topo da pilha " + pilha.desempilha());
 		
 		System.out.println(pilha);
