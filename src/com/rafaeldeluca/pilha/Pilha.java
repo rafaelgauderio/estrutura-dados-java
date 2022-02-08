@@ -17,6 +17,7 @@ public class Pilha<T> extends EstruturaEstatica<T>{
 		super.adiciona(element);
 	}
 	
+	//espiar no topo, peeak. Espia sem excluir o elemento do topo da pilha
 	public T topo(){
 
 		if (this.estaVazia()){
@@ -25,6 +26,8 @@ public class Pilha<T> extends EstruturaEstatica<T>{
 
 		return this.elements[size-1];
 	}
+	
+	
 	
 
 }
