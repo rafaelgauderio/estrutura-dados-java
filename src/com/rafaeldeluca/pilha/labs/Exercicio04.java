@@ -38,7 +38,7 @@ public class Exercicio04 {
 		System.out.println("Espiando o topo da pilha de livros: " + pilha.peek());
 		
 		
-		System.out.println("Desempilhando a pilha de livros. Removendo a partir do topo");
+		System.out.println("Desempilhando a pilha de livros. Removendo a partir do topo!");
 
 		while(pilha.isEmpty()==false) {
 
