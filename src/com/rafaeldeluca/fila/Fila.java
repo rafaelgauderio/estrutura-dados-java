@@ -23,6 +23,16 @@ public class Fila<T> extends EstruturaEstatica<T>{
 		this.adiciona(element);
 		
 	}
+	//esticar o pesçoco para ver quem é o primeiro da fila
+	//espiar no inicia da fila, peek. Espia sem excluir o elemento do inicio da fila
+		public T espiar(){
+
+			if (this.estaVazia()){
+				return null;
+			} 
+
+			return this.elements[0];
+		}
 	
 	
 
