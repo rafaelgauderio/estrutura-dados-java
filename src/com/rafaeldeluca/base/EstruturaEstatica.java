@@ -28,7 +28,7 @@ public class EstruturaEstatica<T> {
 			return false;
 		}
 	}
-	//protected vai ficar visil apenas para a classe e para as classes filhos
+	//protected vai ficar visível apenas para a classe e para as classes filhos
 	protected boolean adiciona(T element)  {
 		this.increaseCapacity();
 		if (this.size < this.elements.length) {
