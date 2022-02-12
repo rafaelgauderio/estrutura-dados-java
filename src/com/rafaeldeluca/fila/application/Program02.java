@@ -18,6 +18,9 @@ public class Program02 {
 		//Vai espiar o primeiro elemento da fila. O que foi adiciona por primeiro
 		System.out.println(fila.espiar());
 		System.out.println(fila);
+		
+		System.out.println("Elemento removido do inicio: " + fila.desenfileirar());
+		System.out.println(fila);
 
 	}
 
