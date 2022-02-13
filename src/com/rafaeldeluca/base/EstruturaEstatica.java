@@ -40,7 +40,9 @@ public class EstruturaEstatica<T> {
 	}
 
 	protected boolean adiciona(int position, T element) {
-
+		//if(position < 0 || position > size)
+		//Algebra boleana. Negacao da Operacao OR = troca por AND e troca os operadores
+		//Negacao da Operacao AND = troca por OR e troca os operadores
 		if(!(position >=0 && position <= size) ) {
 			throw new IllegalArgumentException("Posição informada é inválida");
 		}

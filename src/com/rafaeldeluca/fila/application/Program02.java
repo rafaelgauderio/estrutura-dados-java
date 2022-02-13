@@ -21,6 +21,11 @@ public class Program02 {
 		
 		System.out.println("Elemento removido do inicio: " + fila.desenfileirar());
 		System.out.println(fila);
+		
+		fila.desenfileirar();
+		fila.desenfileirar();
+		fila.desenfileirar();
+		System.out.println(fila.estaVazia());
 
 	}
 
