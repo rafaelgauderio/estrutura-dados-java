@@ -9,7 +9,7 @@ import com.rafaeldeluca.fila.Paciente;
 public class Program05 {
 
 	public static void main(String[] args) {
-
+		
 		Queue<Paciente> queueWithPriority = new PriorityQueue<>(
 
 				new Comparator<Paciente>()
@@ -29,17 +29,13 @@ public class Program05 {
 		queueWithPriority.add(new Paciente("D",81));
 		
 		//Ordena primeiro pela idade e depois pela ordem de chegada FIFO
-		System.out.println(queueWithPriority);	
-		
-		
+		System.out.println(queueWithPriority);
+				
 		System.out.println(queueWithPriority.remove());
 		System.out.println(queueWithPriority.remove());
 		System.out.println(queueWithPriority.remove());
 		System.out.println(queueWithPriority.remove());
 		System.out.println(queueWithPriority.remove());
-
-
-
 	}
 
 }
