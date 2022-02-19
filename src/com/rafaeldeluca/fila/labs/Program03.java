@@ -1,58 +1,51 @@
 package com.rafaeldeluca.fila.labs;
 
-import com.rafaeldeluca.fila.Fila;
+import com.rafaeldeluca.fila.FilaComPrioridade;
 
 public class Program03 {
 
-	public static void main(String [] args) {
+	//simular uma fila de um pronto socorro/
+	//3 cores para código, a consulta dura 10 segundos
+	//A cada 5 segundos chega uma pessoa com prioridade aleatória
+	
+	public static final int RED=0;
+	public static final int YELLOW=1;
+	public static final int GREEN=3;
+	
+	
+	public static void main(String[] args) {
+	
+		FilaComPrioridade<Person> queue = new FilaComPrioridade<Person>();
+		//lining up 10 persons in the emergency room
+		queue.enfileira(new Person("Rafael",GREEN));
+		queue.enfileira(new Person("Juliana",YELLOW));
+		queue.enfileira(new Person("Mary", RED));
+		queue.enfileira(new Person("Lara", GREEN));
+		queue.enfileira(new Person("Iara", GREEN));
+		queue.enfileira(new Person("Fernando", RED));
+		queue.enfileira(new Person("Valdir", YELLOW));
+		queue.enfileira(new Person("Clarisse", RED));
+		queue.enfileira(new Person("Kleyton", GREEN));
+		queue.enfileira(new Person("Obi-wan", YELLOW));
+		
+		EmergencyRoomCalls calls = new EmergencyRoomCalls(queue);
+		EmergencyRoomNewPatientes patients = new EmergencyRoomNewPatientes(queue);
+		
+		
+		Thread thread1 = new Thread(calls);
+		Thread thread2 = new Thread(patients);
+		
+		
+		
+		thread1.start();
+		thread2.start();
+		
+		
+		
+		
+		
+		
 
-		Fila<String> regular = new Fila<>();
-		Fila<String> prioridade = new Fila<>();
-
-		final int MAX_PRIORIDADE = 3;
-
-		regular.enfileira("Pessoa 1");
-		regular.enfileira("Pessoa 2");
-		regular.enfileira("Pessoa 3");
-		prioridade.enfileira("Pessoa 1P");
-		prioridade.enfileira("Pessoa 2P");
-		prioridade.enfileira("Pessoa 3P");
-		prioridade.enfileira("Pessoa 4P");
-		prioridade.enfileira("Pessoa 5P");
-		prioridade.enfileira("Pessoa 6P");
-		prioridade.enfileira("Pessoa 7P");
-		regular.enfileira("Pessoa 4");
-		regular.enfileira("Pessoa 5");
-		regular.enfileira("Pessoa 6");
-		regular.enfileira("Pessoa 7");
-		regular.enfileira("Pessoa 8");
-
-		while (!regular.estaVazia() || !prioridade.estaVazia()) {
-
-			int cont = 0;
-
-			while(!prioridade.estaVazia() && cont < MAX_PRIORIDADE) {
-				atendePessoa(prioridade);
-				cont++;
-			}
-
-			if (!regular.estaVazia()) {
-				atendePessoa(regular);
-			}
-
-			if (prioridade.estaVazia()) {
-				while (!regular.estaVazia()) {
-					atendePessoa(regular);
-				}
-			}
-		}
-	}
-
-	public static void atendePessoa(Fila<String> fila) {
-		String pessoaAtendida = fila.desenfileirar();
-		System.out.println(pessoaAtendida + " foi atendida.");
 	}
 
 }
-
-
